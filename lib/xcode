@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing xcode developer tools.
+
+XCODE_CLI_GIT_PATH="/Library/Developer/CommandLineTools/usr/bin/git"
+XCODE_CLI_INSTALL_LOCK_PATH="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
+
+# Install the latest xcode command line tools.
+install_xcode_command_line_tools() {
+    if ! [ -f "$XCODE_CLI_GIT_PATH" ]; then
+        sudo touch "$XCODE_CLI_INSTALL_LOCK_PATH"
+
+        CLT_PACKAGE=$(softwareupdate -l | \
+                        grep -B 1 "Command Line Tools" | \
+                        awk -F"*" '/^ *\*/ {print $2}' | \
+                        sed -e 's/^ *Label: //' -e 's/^ *//' | \
+                        sort -V |
+                        tail -n1)
+        sudo softwareupdate -i "$CLT_PACKAGE"
+        sudo rm -f "$XCODE_CLI_INSTALL_LOCK_PATH"
+
+        if ! [ -f "$XCODE_CLI_GIT_PATH" ]; then
+            xcode-select --install
+        fi
+    fi
+}
+
+# Accept required xcode license (if not previously accepted.)
+accept_xcode_license() {
+    if /usr/bin/xcrun clang 2>&1 | grep license; then
+        echo 'accept' > sudo xcodebuild -license
+    fi
+}
