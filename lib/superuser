@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing su.
+
+
+# Ask for user password so we can 'sudo'. This is on a (default) 5-minute timer.
+ask_for_sudo_password() {
+    sudo --validate
+}
+
+# Start background process to keep sudo alive until this script finishes.
+#
+# $1 - PID of this script execution.
+keep_sudo_password_alive() {
+    while true; do sudo -n true; sleep 60; kill -0 "$1" || exit; done 2>/dev/null &
+}
