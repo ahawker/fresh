@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with 'softwareupdate'.
+
+# Install homebrew using default installation script.
+#
+# Depends on 'xcode' library being sourced.
+install_software_updates() {
+    if ! softwareupdate -l 2>&1 | grep "No new software available."; then
+        sudo softwareupdate --install --all
+        accept_xcode_license
+    fi
+}
