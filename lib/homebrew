@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with homebrew (https://brew.sh).
+
+HOMEBREW_INSTALL_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+HOMEBREW_GLOBAL_FILE="$HOME/.Brewfile"
+
+install_homebrew() {
+    if [ ! -f /usr/local/bin/brew ]; then
+        /usr/bin/env sh -c "$(curl -fsSL $HOMEBREW_INSTALL_URL)"
+    fi
+    
+}
+
+update_homebrew() {
+    brew update
+}
+
+install_homebrew_deps() {
+    brew tap homebrew/cask
+    brew tap homebrew/core
+    brew tap homebrew/services
+}
+
+install_homebrew_bundle() {
+    if [ -f $HOMEBREW_GLOBAL_FILE ]; then
+        brew bundle check --global || brew bundle --global
+    fi
+}
