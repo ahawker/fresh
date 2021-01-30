@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+#
+# Export functions for simple logging.
+
+# Simple info logging.
+#
+# $1 - Message to write to stdout.
+log() {
+    echo "$*"
+}
+
+# Context manager that logs before/after the given args. It is assumed that a function
+# with optional arguments is passed.
+#
+# Ex: log_call my_foo 42
+#
+# $@ - Function with arguments to call.
+log_call() {
+    printf -- "--> %s ... " "$*"
+    "$@"
+    echo "OK"
+}
