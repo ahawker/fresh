@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing power/sleep settings.
+
+
+# Disable sleep until the given PID exits.
+#
+# $1 - PID to wait for.
+disable_sleep_on_ac_power_for_pid() {
+    caffeinate -s -w $1 &
+}
