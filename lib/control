@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+#
+# Export functions for simple control flow.
+
+# Exit the current program.
+#
+# $1 - Exit code; default: 1
+abort() {
+    echo "ABORT -- $*" >&2; exit 1;
+}
+
+# Abort execution if currently running as root.
+#
+# $1 - Abort message (optional)
+abort_if_root() {
+    [ "$USER" = "root" ] && abort "${1:-You cannot run this as root}"
+}
+
+# Abort execution if currently running as me.
+#
+# $1 - Abort message (optional)
+abort_if_not_me() {
+    [[ "$USER" =~ "hawker" ]] || abort "${1:-You cannot run this. You are not me.}"
+}
