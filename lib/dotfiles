@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with dotfiles.
+
+DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_URL="git@github.com:ahawker/dotfiles.git"
+
+install_dotfiles_deps() {
+    brew install --quiet stow
+}
+
+install_dotfiles() {
+    if [ ! -d "$DOTFILES_DIR" ]; then
+        git clone "$DOTFILES_URL" "$DOTFILES_DIR"
+        (
+            cd "$DOTFILES_DIR" && \
+            IGNORE_SHELL_RC_FILES=1 make install
+        )
+    else
+        (
+            cd "$DOTFILES_DIR" && \
+            git pull --rebase --autostash && \
+            IGNORE_SHELL_RC_FILES=1 make reinstall
+        )
+    fi
+}
