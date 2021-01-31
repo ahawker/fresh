@@ -12,9 +12,12 @@ set_locale_and_currency() {
     defaults write NSGlobalDomain AppleLocale -string "$LOCALE@currency=$CURRENCY"
 }
 
-set_measurement_units_to_metric() {
-    defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-    defaults write NSGlobalDomain AppleMetricUnits -bool true
+set_measurement_units() {
+    defaults write NSGlobalDomain AppleMeasurementUnits -string "${1:-Centimeters}"
+}
+
+set_metric() {
+    defaults write NSGlobalDomain AppleMetricUnits -bool "${1:-true}"
 }
 
 set_timezone() {

@@ -20,5 +20,5 @@ abort_if_root() {
 #
 # $1 - Abort message (optional)
 abort_if_not_me() {
-    [[ "$USER" =~ "hawker" ]] || abort "${1:-You cannot run this. You are not me.}"
+    [[ "$USER" =~ "$VAR_USERNAME" ]] || abort "${1:-You cannot run this. You are not me.}"
 }

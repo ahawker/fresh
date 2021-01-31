@@ -3,7 +3,7 @@
 # Export functions for interacting with dotfiles.
 
 DOTFILES_DIR="$HOME/dotfiles"
-DOTFILES_URL="git@github.com:ahawker/dotfiles.git"
+DOTFILES_URL="https://github.com/${VAR_GITHUB_DOTFILES_REPO}"
 
 install_dotfiles_deps() {
     brew install --quiet stow

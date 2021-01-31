@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+#
+# Export variables required by bin/fresh.
+
+# ===== Global =====
+VAR_USERNAME=hawker
+
+# ===== Security =====
+
+# ===== Dotfiles =====
+# WARN: Modifying this is going to break the dotfiles script
+# unless it supports the same Makefile interface of 'intstall' and 'reinstall'.
+VAR_GITHUB_DOTFILES_REPO=ahawker/dotfiles
+
+# ===== Screenshots =====
+VAR_SCREENSHOT_DIR="$HOME/screenshots"
+VAR_SCREENSHOT_FORMAT=png
+
+# ===== Localization =====
+VAR_LANGUAGE=en
+VAR_LOCALE=en_US
+VAR_CURRENCY=USD
+VAR_TIME_ZONE=America/Los_Angeles
+VAR_MEASUREMENT_UNITS=Centimeters
+VAR_USE_METRIC=true

@@ -2,8 +2,11 @@
 #
 # Bootstrap a fresh OSX install.
 
-set -e
+set -u
+set -o pipefail
 
+# Source required variables and libraries.
+. "vars"
 for f in $(find "lib" -type f 2> /dev/null); do . "$f"; done
 
 ask_for_sudo_password
@@ -54,15 +57,16 @@ log_section "Hot corners"
 log_call enable_lock_top_right
 
 log_section "Screenshots"
-log_call set_screenshot_dir "$HOME/screenshots"
-log_call set_screenshot_format "png"
+log_call set_screenshot_dir "$VAR_SCREENSHOT_DIR"
+log_call set_screenshot_format "$VAR_SCREENSHOT_FORMAT"
 log_call disable_screenshot_shadows
 
 log_section "Localization"
-log_call set_language "en"
-log_call set_locale_and_currency "en_US" "USD"
-log_call set_measurement_units_to_metric
-log_call set_timezone "America/Los_Angeles"
+log_call set_language "$VAR_LANGUAGE"
+log_call set_locale_and_currency "$VAR_LOCALE" "$VAR_CURRENCY"
+log_call set_measurement_units "$VAR_MEASUREMENT_UNITS"
+log_call set_metric "$VAR_USE_METRIC"
+log_call set_timezone "$VAR_TIME_ZONE"
 log_call hide_boot_screen_language_menu
 
 log_section "Power"
