@@ -1,0 +1,66 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with OSX finder.
+
+show_quit_finder() {
+    defaults write com.apple.finder QuitMenuItem -bool true
+}
+
+show_drives_on_desktop() {
+    defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+    defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
+    defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
+    defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+}
+
+show_hidden_files() {
+    defaults write com.apple.finder AppleShowAllFiles -bool true
+}
+
+show_file_extensions() {
+    defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+}
+
+show_status_bar() {
+    defaults write com.apple.finder ShowStatusBar -bool true
+}
+
+show_path_bar() {
+    defaults write com.apple.finder ShowPathbar -bool true
+}
+
+show_path_in_title() {
+    defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+}
+
+sort_folders_first() {
+    defaults write com.apple.finder _FXSortFoldersFirst -bool true
+}
+
+search_cwd_first() {
+    defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+}
+
+disable_file_ext_change_warning() {
+    defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+}
+
+disable_ds_store_on_network_attached_volumes() {
+    defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+    defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+}
+
+open_new_window_on_volume_mount() {
+    defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+    defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+    defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
+}
+
+show_hidden_system_folders() {
+    chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+    sudo chflags nohidden /Volumes
+}
+
+hide_tags_section() {
+    defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool false
+}
