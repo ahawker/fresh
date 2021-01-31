@@ -1,0 +1,84 @@
+#!/usr/bin/env sh
+#
+# Bootstrap a fresh OSX install.
+
+for f in $(find "lib" -type f 2> /dev/null); do . "$f"; done
+
+ask_for_sudo_password
+keep_sudo_password_alive "$$"
+
+log_section "Prepare"
+log_call abort_if_root
+log_call abort_if_not_me
+log_call disable_sleep_on_ac_power_for_pid "$$"
+
+log_section "Security"
+log_call disable_java_for_safari_webkit
+log_call enable_screensaver_password_prompt 5
+log_call enable_application_layer_firewall
+log_call enable_full_disk_encryption
+
+log_section "Finder"
+log_call show_quit_finder
+log_call show_drives_on_desktop
+log_call show_hidden_files
+log_call show_file_extensions
+log_call show_status_bar
+log_call show_path_bar
+log_call show_path_in_title
+log_call sort_folders_first
+log_call search_cwd_first
+log_call disable_file_ext_change_warning
+log_call disable_ds_store_on_network_attached_volumes
+log_call open_new_window_on_volume_mount
+log_call show_hidden_system_folders
+log_call hide_tags_section
+
+log_section "Dock"
+log_call enable_auto_hide
+log_call disable_launch_animation
+log_call set_small_tile_size
+log_call hide_persistent_apps
+log_call hide_recent_apps
+log_call only_show_open_apps
+log_call minimize_into_app_icon
+
+log_section "Hot corners"
+log_call enable_lock_top_right
+
+log_section "Screenshots"
+log_call set_screenshot_dir "$HOME/screenshots"
+log_call set_screenshot_format "png"
+log_call disable_screenshot_shadows
+
+log_section "Localization"
+log_call set_language "en"
+log_call set_locale_and_currency "en_US" "USD"
+log_call set_measurement_units_to_metric
+log_call set_timezone "America/Los_Angeles"
+log_call hide_boot_screen_language_menu
+
+log_section "Power"
+log_call enable_open_lid_wakeup
+log_call restart_after_power_loss_or_freeze
+log_call disable_hibernation_mode
+log_call disable_sleep_mode
+
+log_section "Xcode CLI Tools"
+log_call install_xcode_command_line_tools
+log_call accept_xcode_license
+
+log_section "Homebrew"
+log_call install_homebrew
+log_call update_homebrew
+log_call install_homebrew_deps
+
+log_section "System software updates"
+log_call install_software_updates
+
+log_section "Dotfiles"
+log_call install_dotfiles_deps
+log_call install_dotfiles
+
+log_section "Homebrew packages"
+log_call install_homebrew_bundle
