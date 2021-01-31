@@ -2,6 +2,10 @@
 #
 # Export functions for interacting with OSX dock.
 
+set_dock_orientation() {
+    defaults write com.apple.dock orientation -string "${1:-bottom}"
+}
+
 enable_auto_hide() {
     defaults write com.apple.dock autohide -bool true
     defaults write com.apple.dock autohide-delay -float 0

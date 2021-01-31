@@ -2,6 +2,8 @@
 #
 # Bootstrap a fresh OSX install.
 
+set -e
+
 for f in $(find "lib" -type f 2> /dev/null); do . "$f"; done
 
 ask_for_sudo_password
@@ -35,6 +37,7 @@ log_call show_hidden_system_folders
 log_call hide_tags_section
 
 log_section "Dock"
+log_call set_dock_orientation "bottom"
 log_call enable_auto_hide
 log_call disable_launch_animation
 log_call set_small_tile_size
@@ -68,6 +71,7 @@ log_call restart_after_power_loss_or_freeze
 log_call disable_hibernation_mode
 log_call disable_sleep_mode
 log_call disable_sleep_while_charging
+log_call disable_wake_on_lan
 log_call set_sleep_time_in_minutes_when_on_battery 5
 
 log_section "Xcode CLI Tools"
