@@ -9,6 +9,13 @@ log() {
     echo "$*"
 }
 
+# Log a "section header" message.
+#
+# $1 - Message to write to stdout.
+log_section() {
+    echo "====== $* ======"
+}
+
 # Context manager that logs before/after the given args. It is assumed that a function
 # with optional arguments is passed.
 #
