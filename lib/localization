@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+#
+# Export functions for setting locale/language/units.
+
+set_language() {
+    defaults write NSGlobalDomain AppleLanguages -array "${1:-en}"
+}
+
+set_locale_and_currency() {
+    LOCALE="${1:-en_US}"
+    CURRENCY="${2:-USD}"
+    defaults write NSGlobalDomain AppleLocale -string "$LOCALE@currency=$CURRENCY"
+}
+
+set_measurement_units_to_metric() {
+    defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
+    defaults write NSGlobalDomain AppleMetricUnits -bool true
+}
+
+set_timezone() {
+    TZ_NAME="${1:-America/Los_Angeles}"
+    sudo systemsetup -settimezone "$TZ_NAME" > /dev/null
+}
+
+hide_boot_screen_language_menu() {
+    sudo defaults write /Library/Preferences/com.apple.loginwindow showInputMenu -bool false
+}
