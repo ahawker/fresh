@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with OSX trackpad.
+
+disable_natural_scrolling() {
+    defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+}
