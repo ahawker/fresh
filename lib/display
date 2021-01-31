@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with display settings.
+
+
+enable_subpixel_rendering() {
+    defaults write NSGlobalDomain AppleFontSmoothing -int 1
+}
+
+enable_high_dpi_display_modes() {
+    sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+}

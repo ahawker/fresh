@@ -57,7 +57,8 @@ open_new_window_on_volume_mount() {
 }
 
 show_hidden_system_folders() {
-    chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+    chflags nohidden ~/Library
+    xattr -d com.apple.FinderInfo ~/Library
     sudo chflags nohidden /Volumes
 }
 

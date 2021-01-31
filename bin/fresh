@@ -43,6 +43,10 @@ log_call hide_recent_apps
 log_call only_show_open_apps
 log_call minimize_into_app_icon
 
+log_section "Display"
+log_call enable_subpixel_rendering
+log_call enable_high_dpi_display_modes
+
 log_section "Hot corners"
 log_call enable_lock_top_right
 
@@ -63,6 +67,8 @@ log_call enable_open_lid_wakeup
 log_call restart_after_power_loss_or_freeze
 log_call disable_hibernation_mode
 log_call disable_sleep_mode
+log_call disable_sleep_while_charging
+log_call set_sleep_time_in_minutes_when_on_battery 5
 
 log_section "Xcode CLI Tools"
 log_call install_xcode_command_line_tools

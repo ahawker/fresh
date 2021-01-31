@@ -9,3 +9,31 @@
 disable_sleep_on_ac_power_for_pid() {
     caffeinate -s -w $1 &
 }
+
+enable_open_lid_wakeup() {
+    sudo pmset -a lidwake 1
+}
+
+restart_after_power_loss_or_freeze() {
+    sudo pmset -a autorestart 1
+    sudo systemsetup -setrestartfreeze on
+}
+
+disable_hibernation_mode() {
+    sudo pmset -a hibernatemode 0
+    sudo rm /private/var/vm/sleepimage
+    sudo touch /private/var/vm/sleepimage
+    sudo chflags uchg /private/var/vm/sleepimage
+}
+
+disable_sleep_mode() {
+    sudo systemsetup -setcomputersleep Off > /dev/null
+}
+
+disable_sleep_while_charging() {
+    sudo pmset -c sleep 0
+}
+
+set_sleep_time_in_minutes_when_on_battery() {
+    sudo pmset -b sleep "${1-:5}"
+}
