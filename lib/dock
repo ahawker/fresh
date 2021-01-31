@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with OSX dock.
+
+enable_auto_hide() {
+    defaults write com.apple.dock autohide -bool true
+    defaults write com.apple.dock autohide-delay -float 0
+    defaults write com.apple.dock autohide-time-modifier -float 0
+}
+
+disable_launch_animation() {
+    defaults write com.apple.dock launchanim -bool false
+}
+
+set_small_tile_size() {
+    defaults write com.apple.dock tilesize -int 33
+}
+
+hide_persistent_apps() {
+    defaults write com.apple.dock persistent-apps -array
+}
+
+hide_recent_apps() {
+    defaults write com.apple.dock show-recents -bool false
+}
+
+only_show_open_apps() {
+    defaults write com.apple.dock static-only -bool true
+}
+
+minimize_into_app_icon() {
+    defaults write com.apple.dock minimize-to-application -bool true
+}
