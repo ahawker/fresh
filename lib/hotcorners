@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+#
+# Export functions for interacting with OSX hot corners.
+
+# Possible values:
+#  0: No action
+#  2: Mission Control
+#  3: Show application windows
+#  4: Desktop
+#  5: Start screen saver
+#  6: Disable screen saver
+#  7: Dashboard
+# 10: Put display to sleep
+# 11: Launchpad
+# 12: Notification Center
+# 13: Lock Screen
+
+enable_lock_top_right() {
+    defaults write com.apple.dock wvous-tr-corner -int 13
+    defaults write com.apple.dock wvous-tr-modifier -int 0
+}
