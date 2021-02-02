@@ -12,6 +12,10 @@ Don't use this. I have shit hardcoded. Some things are parametrized. See [vars](
 $ bin/fresh
 ```
 
+## Dependencies
+
+* [ahawker/dotfiles](https://github.com/ahawker/dotfiles)
+
 ## Prior Art
 
 * [MikeMcQuaid/strap](https://github.com/MikeMcQuaid/strap)
