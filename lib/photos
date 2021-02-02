@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing photos app.
+
+
+disable_photos_opening_on_media_plugged_in() {
+    defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+}

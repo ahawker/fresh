@@ -56,6 +56,9 @@ log_call enable_high_dpi_display_modes
 log_section "Hot corners"
 log_call enable_lock_top_right
 
+log_section "Photos"
+log_call disable_photos_opening_on_media_plugged_in
+
 log_section "Screenshots"
 log_call set_screenshot_dir "$VAR_SCREENSHOT_DIR"
 log_call set_screenshot_format "$VAR_SCREENSHOT_FORMAT"
