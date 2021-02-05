@@ -21,7 +21,7 @@ restart_after_power_loss_or_freeze() {
 
 disable_hibernation_mode() {
     sudo pmset -a hibernatemode 0
-    sudo rm /private/var/vm/sleepimage 2>&1 /dev/null
+    sudo rm /private/var/vm/sleepimage 2>&1 > /dev/null
     sudo touch /private/var/vm/sleepimage
     sudo chflags uchg /private/var/vm/sleepimage
 }
