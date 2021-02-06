@@ -12,6 +12,15 @@ Don't use this. I have shit hardcoded. Some things are parametrized. See [vars](
 $ bin/fresh
 ```
 
+## TODO
+
+* [ ] iterm2
+* [ ] vscode
+* [ ] chrome
+* [ ] "extras" (work environments)
+* [ ] divvy config/license
+* [ ] keybase/gpg
+
 ## Dependencies
 
 * [ahawker/dotfiles](https://github.com/ahawker/dotfiles)
