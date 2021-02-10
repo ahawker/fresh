@@ -59,6 +59,9 @@ log_call enable_lock_top_right
 log_section "Photos"
 log_call disable_photos_opening_on_media_plugged_in
 
+log_section "Chrome"
+log_call expand_print_dialog
+
 log_section "Screenshots"
 log_call set_screenshot_dir "$VAR_SCREENSHOT_DIR"
 log_call set_screenshot_format "$VAR_SCREENSHOT_FORMAT"
