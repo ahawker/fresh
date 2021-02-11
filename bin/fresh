@@ -102,3 +102,7 @@ log_call install_dotfiles
 
 log_section "Homebrew packages"
 log_call install_homebrew_bundle
+
+log_section "Restarting modified apps/services"
+log_call restart_modified_apps
+log "Process completed. Some changes may require a restart to take effect."

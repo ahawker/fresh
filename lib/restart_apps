@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing restarting apps that were modified.
+
+restart_modified_apps() {
+    for app in "Activity Monitor" \
+        "Address Book" \
+        "Calendar" \
+        "cfprefsd" \
+        "Contacts" \
+        "Dock" \
+        "Finder" \
+        "Google Chrome Canary" \
+        "Google Chrome" \
+        "Mail" \
+        "Messages" \
+        "Opera" \
+        "Photos" \
+        "Safari" \
+        "SystemUIServer" \
+        "Terminal"; do
+         killall "${app}" &> /dev/null
+    done
+}
