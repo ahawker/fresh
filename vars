@@ -4,6 +4,11 @@
 
 # ===== Global =====
 VAR_USERNAME=hawker
+VAR_SOUND_EFFECT_ON_BOOT=true
+VAR_SHOW_SCROLL_BARS=Always  # `WhenScrolling`, `Automatic` and `Always`
+VAR_EXPAND_PRINT_PANEL_BY_DEFAULT=true
+VAR_EXPAND_SAVE_PANEL_BY_DEFAULT=true
+VAR_SAVE_NEW_DOCUMENTS_TO_ICLOUD=false
 
 # ===== Security =====
 

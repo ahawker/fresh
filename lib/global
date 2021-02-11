@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+#
+# Export functions for global settings.
+
+
+sound_effect_on_boot() {
+    if [ -z "$1" ]; then
+        sudo nvram SystemAudioVolume=" "
+    fi
+}
+
+show_scrollbar_bars() {
+    defaults write NSGlobalDomain AppleShowScrollBars -string "${1:-Always}"
+}
+
+expand_print_panel_by_default() {
+    defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool "${1:-true}"
+    defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool "${1:-true}"
+}
+
+expand_save_panel_by_default() {
+    defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool "${1:-true}"
+    defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool "${1:-true}"
+}
+
+save_new_documents_to_icloud() {
+    defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool "${1:-false}"
+}
