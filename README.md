@@ -27,10 +27,12 @@ bin/fresh
 
 * [ ] iterm2
 * [ ] vscode
-* [ ] chrome
+* [ ] chrome settings
 * [ ] "extras" (work environments)
 * [ ] divvy config/license
 * [ ] keybase/gpg
+* [ ] user icon
+* [ ] keyboard laptop (remap control)
 
 ## Dependencies
 
