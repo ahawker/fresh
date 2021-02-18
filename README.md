@@ -12,6 +12,17 @@ Don't use this. I have shit hardcoded. Some things are parametrized. See [vars](
 $ bin/fresh
 ```
 
+## Fresh Laptop
+
+```sh
+chsh -s /bin/zsh
+xcode-select --install
+cd ~
+git clone https://github.com/ahawker/fresh src/github.com/ahawker/fresh
+cd src/github.com/ahawker/fresh
+bin/fresh
+```
+
 ## TODO
 
 * [ ] iterm2
