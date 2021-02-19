@@ -35,3 +35,9 @@ expand_save_panel_by_default() {
 save_new_documents_to_icloud() {
     defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool "${1:-false}"
 }
+
+disable_siri() {
+    defaults write com.apple.Siri StatusMenuVisible -bool false
+    defaults write com.apple.Siri UserHasDeclinedEnable -bool true
+    defaults write com.apple.assistant.support 'Assistant Enabled' 0
+}
