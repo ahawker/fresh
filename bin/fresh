@@ -93,7 +93,8 @@ log_call disable_hibernation_mode
 log_call disable_sleep_mode
 log_call disable_sleep_while_charging
 log_call disable_wake_on_lan
-log_call set_sleep_time_in_minutes_when_on_battery 5
+log_call set_sleep_time_in_minutes_when_on_ac "$VAR_SLEEP_AFTER_MINUTES_ON_AC"
+log_call set_sleep_time_in_minutes_when_on_battery "$VAR_SLEEP_AFTER_MINUTES_ON_BATTERY"
 
 log_section "Xcode CLI Tools"
 log_call install_xcode_command_line_tools

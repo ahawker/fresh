@@ -19,6 +19,10 @@ VAR_CREATE_SSH_KEY=true
 # unless it supports the same Makefile interface of 'intstall' and 'reinstall'.
 VAR_GITHUB_DOTFILES_REPO=ahawker/dotfiles
 
+# ===== Dotfiles =====
+VAR_SLEEP_AFTER_MINUTES_ON_AC=15
+VAR_SLEEP_AFTER_MINUTES_ON_BATTERY=5
+
 # ===== Screenshots =====
 VAR_SCREENSHOT_DIR="$HOME/screenshots"
 VAR_SCREENSHOT_FORMAT=png

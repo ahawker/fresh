@@ -38,6 +38,10 @@ disable_wake_on_lan() {
     sudo systemsetup -setwakeonnetworkaccess Off > /dev/null
 }
 
+set_sleep_time_in_minutes_when_on_ac() {
+    sudo pmset -c sleep "${1-:15}"
+}
+
 set_sleep_time_in_minutes_when_on_battery() {
     sudo pmset -b sleep "${1-:5}"
 }
