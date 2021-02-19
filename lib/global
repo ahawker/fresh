@@ -3,6 +3,15 @@
 # Export functions for global settings.
 
 
+set_computer_name() {
+    if [ -n "$1" ]; then
+        sudo scutil --set ComputerName "$1"
+        sudo scutil --set HostName "$1"
+        sudo scutil --set LocalHostName "$1"
+        sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$1"
+    fi
+}
+
 sound_effect_on_boot() {
     if [ -z "$1" ]; then
         sudo nvram SystemAudioVolume=" "

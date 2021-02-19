@@ -18,6 +18,7 @@ log_call abort_if_not_me
 log_call disable_sleep_on_ac_power_for_pid "$$"
 
 log_section "Global"
+log_call set_computer_name "$VAR_COMPUTER_NAME"
 sound_effect_on_boot "$VAR_SOUND_EFFECT_ON_BOOT"
 show_scrollbar_bars "$VAR_SHOW_SCROLL_BARS"
 expand_print_panel_by_default "$VAR_EXPAND_PRINT_PANEL_BY_DEFAULT"

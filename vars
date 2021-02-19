@@ -4,6 +4,7 @@
 
 # ===== Global =====
 VAR_USERNAME=hawker
+VAR_COMPUTER_NAME=
 VAR_SOUND_EFFECT_ON_BOOT=true
 VAR_SHOW_SCROLL_BARS=Always  # `WhenScrolling`, `Automatic` and `Always`
 VAR_EXPAND_PRINT_PANEL_BY_DEFAULT=true
