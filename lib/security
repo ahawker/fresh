@@ -2,6 +2,11 @@
 #
 # Export functions for managing security settings.
 
+create_new_ssh_key() {
+    if [[ ! -f ~/.ssh/id_rsa && -n "$1" ]]; then
+        ssh-keygen -t rsa -b 8192
+    fi
+}
 
 # Disable Java for webkit (safari).
 disable_java_for_safari_webkit() {

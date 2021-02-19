@@ -12,6 +12,7 @@ VAR_EXPAND_SAVE_PANEL_BY_DEFAULT=true
 VAR_SAVE_NEW_DOCUMENTS_TO_ICLOUD=false
 
 # ===== Security =====
+VAR_CREATE_SSH_KEY=true
 
 # ===== Dotfiles =====
 # WARN: Modifying this is going to break the dotfiles script

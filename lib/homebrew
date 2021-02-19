@@ -9,7 +9,6 @@ install_homebrew() {
     if [ ! -f /usr/local/bin/brew ]; then
         /usr/bin/env sh -c "$(curl -fsSL $HOMEBREW_INSTALL_URL)"
     fi
-    
 }
 
 update_homebrew() {
