@@ -19,11 +19,11 @@ log_call disable_sleep_on_ac_power_for_pid "$$"
 
 log_section "Global"
 log_call set_computer_name "$VAR_COMPUTER_NAME"
-sound_effect_on_boot "$VAR_SOUND_EFFECT_ON_BOOT"
-show_scrollbar_bars "$VAR_SHOW_SCROLL_BARS"
-expand_print_panel_by_default "$VAR_EXPAND_PRINT_PANEL_BY_DEFAULT"
-expand_save_panel_by_default "$VAR_EXPAND_SAVE_PANEL_BY_DEFAULT"
-save_new_documents_to_icloud "$VAR_SAVE_NEW_DOCUMENTS_TO_ICLOUD"
+log_call sound_effect_on_boot "$VAR_SOUND_EFFECT_ON_BOOT"
+log_call show_scrollbar_bars "$VAR_SHOW_SCROLL_BARS"
+log_call expand_print_panel_by_default "$VAR_EXPAND_PRINT_PANEL_BY_DEFAULT"
+log_call expand_save_panel_by_default "$VAR_EXPAND_SAVE_PANEL_BY_DEFAULT"
+log_call save_new_documents_to_icloud "$VAR_SAVE_NEW_DOCUMENTS_TO_ICLOUD"
 
 log_section "Security"
 log_call disable_java_for_safari_webkit
