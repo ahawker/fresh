@@ -49,6 +49,7 @@ log_call disable_ds_store_on_network_attached_volumes
 log_call open_new_window_on_volume_mount
 log_call show_hidden_system_folders
 log_call hide_tags_section
+log_call warn_before_emptying_trash "$VAR_WARN_BEFORE_EMPTYING_TRASH"
 
 log_section "Dock"
 log_call set_dock_orientation "bottom"

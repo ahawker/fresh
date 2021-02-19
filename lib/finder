@@ -65,3 +65,7 @@ show_hidden_system_folders() {
 hide_tags_section() {
     defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool false
 }
+
+warn_before_emptying_trash() {
+    defaults write com.apple.finder WarnOnEmptyTrash -bool $1
+}
