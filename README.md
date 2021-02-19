@@ -33,6 +33,7 @@ bin/fresh
 * [ ] keybase/gpg
 * [ ] user icon
 * [ ] keyboard laptop (remap control)
+* [ ] keyboard shortcuts (remap spotlight so Alfred can use it)
 
 ## Dependencies
 
