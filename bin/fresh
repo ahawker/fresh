@@ -12,8 +12,6 @@ for f in $(find "lib" -type f 2> /dev/null); do . "$f"; done
 ask_for_sudo_password
 keep_sudo_password_alive "$$"
 
-
-
 log_section "Prepare"
 log_call abort_if_root
 log_call abort_if_not_me
@@ -116,6 +114,10 @@ log_call install_dotfiles
 
 log_section "Homebrew packages"
 log_call install_homebrew_bundle
+
+log_section "VSCode"
+log_call install_vscode_extensions
+log_call install_vscode_config
 
 log_section "Restarting modified apps/services"
 log_call restart_modified_apps
