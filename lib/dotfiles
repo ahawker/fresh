@@ -3,7 +3,8 @@
 # Export functions for interacting with dotfiles.
 
 DOTFILES_DIR="$HOME/dotfiles"
-DOTFILES_URL="https://github.com/${VAR_GITHUB_DOTFILES_REPO}"
+DOTFILES_HTTPS_URL="https://github.com/${VAR_GITHUB_DOTFILES_REPO}"
+DOTFILES_GIT_URL="git@github.com/${VAR_GITHUB_DOTFILES_REPO}.git"
 
 install_dotfiles_deps() {
     brew install --quiet stow
@@ -11,10 +12,11 @@ install_dotfiles_deps() {
 
 install_dotfiles() {
     if [ ! -d "$DOTFILES_DIR" ]; then
-        git clone "$DOTFILES_URL" "$DOTFILES_DIR"
+        git clone "$DOTFILES_HTTPS_URL" "$DOTFILES_DIR"
         (
             cd "$DOTFILES_DIR" && \
-            IGNORE_SHELL_RC_FILES=1 make install
+            IGNORE_SHELL_RC_FILES=1 make install && \
+            git remote set-url origin "$DOTFILES_GIT_URL"
         )
     else
         (
