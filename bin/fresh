@@ -119,6 +119,9 @@ log_section "VSCode"
 log_call install_vscode_extensions
 log_call install_vscode_config
 
+log_section "Shell"
+log_call install_oh_my_zsh
+
 log_section "Restarting modified apps/services"
 log_call restart_modified_apps
 log "Process completed. Some changes may require a restart to take effect."

@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing Oh My Zsh.
+
+ZSHRC_PATH="$HOME/.zshrc"
+ZSHRC_BKUP_PATH="$HOME/.zshrc.pre-oh-my-zsh"
+ZSHRC_DOTFILES_PATH="$HOME/dotfiles/dotfiles/zsh/.zshrc"
+OH_MY_ZSH_PATH="$HOME/.oh-my-zsh"
+
+install_oh_my_zsh() {
+    if ! [ -d "$OH_MY_ZSH_PATH" ]; then
+        sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        if [ -f "$ZSHRC_BKUP_PATH" ]; then
+            rm "$ZSHRC_PATH"
+            ls -s "$ZSHRC_DOTFILES_PATH" "$ZSHRC_PATH"
+        fi
+    fi
+}
