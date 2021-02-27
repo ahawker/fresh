@@ -14,5 +14,7 @@ install_oh_my_zsh() {
             rm "$ZSHRC_PATH"
             ls -s "$ZSHRC_DOTFILES_PATH" "$ZSHRC_PATH"
         fi
+        chmod 744 /usr/local/share/zsh
+        chmod 744 /usr/local/share/zsh/site-functions
     fi
 }
