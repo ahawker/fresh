@@ -14,7 +14,9 @@ install_oh_my_zsh() {
     if [ -f "$ZSHRC_BKUP_PATH" ]; then
         rm "$ZSHRC_PATH" 2>/dev/null
         ln -s "$ZSHRC_DOTFILES_PATH" "$ZSHRC_PATH"
-        rm "$ZSHRC_BKUP_PATH"
+        if [ -L "$ZSHRC_BKUP_PATH" ]; then
+            rm "$ZSHRC_BKUP_PATH"
+        fi
     fi
     chmod 744 /usr/local/share/zsh
     chmod 744 /usr/local/share/zsh/site-functions
