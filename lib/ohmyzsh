@@ -10,11 +10,12 @@ OH_MY_ZSH_PATH="$HOME/.oh-my-zsh"
 install_oh_my_zsh() {
     if ! [ -d "$OH_MY_ZSH_PATH" ]; then
         sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        if [ -f "$ZSHRC_BKUP_PATH" ]; then
-            rm "$ZSHRC_PATH"
-            ls -s "$ZSHRC_DOTFILES_PATH" "$ZSHRC_PATH"
-        fi
-        chmod 744 /usr/local/share/zsh
-        chmod 744 /usr/local/share/zsh/site-functions
     fi
+    if [ -f "$ZSHRC_BKUP_PATH" ]; then
+        rm "$ZSHRC_PATH" 2>/dev/null
+        ln -s "$ZSHRC_DOTFILES_PATH" "$ZSHRC_PATH"
+        rm "$ZSHRC_BKUP_PATH"
+    fi
+    chmod 744 /usr/local/share/zsh
+    chmod 744 /usr/local/share/zsh/site-functions
 }
