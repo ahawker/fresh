@@ -110,7 +110,7 @@ log_call install_software_updates
 
 log_section "Dotfiles"
 log_call install_dotfiles_deps
-log_call install_dotfiles
+log_call install_dotfiles "$VAR_PROFILE"
 
 log_section "Homebrew packages"
 log_call install_homebrew_bundle

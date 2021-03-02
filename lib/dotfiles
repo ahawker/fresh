@@ -11,10 +11,13 @@ install_dotfiles_deps() {
 }
 
 install_dotfiles() {
+    BRANCH="${1:-master}"
+
     if [ ! -d "$DOTFILES_DIR" ]; then
         git clone "$DOTFILES_HTTPS_URL" "$DOTFILES_DIR"
         (
             cd "$DOTFILES_DIR" && \
+            git checkout $BRANCH && \
             IGNORE_SHELL_RC_FILES=1 make install && \
             git remote set-url origin "$DOTFILES_GIT_URL"
         )
@@ -22,6 +25,7 @@ install_dotfiles() {
         (
             cd "$DOTFILES_DIR" && \
             git pull --rebase --autostash && \
+            git checkout $BRANCH && \
             IGNORE_SHELL_RC_FILES=1 make reinstall
         )
     fi

@@ -20,6 +20,7 @@ xcode-select --install
 cd ~
 git clone https://github.com/ahawker/fresh src/github.com/ahawker/fresh
 cd src/github.com/ahawker/fresh
+git checkout <profile branch you want>
 bin/fresh
 ```
 
