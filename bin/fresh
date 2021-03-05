@@ -121,6 +121,7 @@ log_call install_vscode_config
 
 log_section "Shell"
 log_call install_oh_my_zsh
+log_call set_iterm2_preferences_directory "$VAR_TERM_PREFERENCES_FOLDER"
 
 log_section "Restarting modified apps/services"
 log_call restart_modified_apps

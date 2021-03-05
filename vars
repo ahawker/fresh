@@ -38,3 +38,6 @@ VAR_CURRENCY=USD
 VAR_TIME_ZONE=America/Los_Angeles
 VAR_MEASUREMENT_UNITS=Centimeters
 VAR_USE_METRIC=true
+
+# ===== iterm2 =====
+VAR_TERM_PREFERENCES_FOLDER="$HOME/.iterm2"

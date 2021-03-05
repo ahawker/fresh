@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing iterm2.
+
+set_iterm2_preferences_directory() {
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "$1"
+    defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+}
