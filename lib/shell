@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+#
+# Export functions for managing our shell.
+
+
+setup_jenv() {
+    jenv enable-plugin export
+}
